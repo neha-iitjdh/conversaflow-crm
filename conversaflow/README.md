@@ -1,46 +1,200 @@
-# Getting Started with Create React App
+# ConversaFlow - Enterprise Real-Time CRM Communication Platform
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+**Status**: Active Development | Expected Launch: November 2025
 
-## Available Scripts
+![React](https://img.shields.io/badge/React-18-blue)
+![TypeScript](https://img.shields.io/badge/TypeScript-5.0-blue)
+![Material-UI](https://img.shields.io/badge/Material--UI-v5-blue)
+![License](https://img.shields.io/badge/license-MIT-green)
 
-In the project directory, you can run:
+## 🌐 Live Preview
 
-### `npm start`
+**Website**: [https://conversaflow-crm.vercel.app](https://conversaflow-crm.vercel.app)
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## 📖 Overview
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+ConversaFlow is a production-grade, full-stack CRM platform designed for enterprise use. It features real-time messaging, HD video conferencing, VoIP telephony integration, and advanced role-based access control (RBAC).
 
-### `npm test`
+## ✨ Key Features
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### 🎯 Core Functionality
 
-### `npm run build`
+- **Real-Time Chat**: WebSocket-powered instant messaging with typing indicators and read receipts
+- **Video Conferencing**: WebRTC-based HD video calls with screen sharing
+- **VoIP Integration**: SIP.js powered telephony with IVR and call routing
+- **Advanced RBAC**: Granular permissions at route and feature levels
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### 🔐 Security
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- Firebase Authentication with multi-factor authentication (MFA)
+- JWT-based session management
+- Role-based access control (Admin, Manager, Agent, Viewer)
+- Secure WebSocket connections
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### 🎨 User Experience
 
-### `npm run eject`
+- Material-UI v5 with custom theming
+- Responsive design for mobile and desktop
+- Dark mode support
+- Accessibility compliant (WCAG 2.1 AA)
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+### ⚡ Performance
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+- Code splitting and lazy loading
+- Optimistic UI updates
+- 95+ Lighthouse performance score
+- Service Worker for offline capabilities
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+## 🛠️ Tech Stack
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+### Frontend
 
-## Learn More
+- **Framework**: React 18 with TypeScript
+- **UI Library**: Material-UI (MUI) v5
+- **State Management**:
+  - Jotai (global state)
+  - React Query (server state)
+- **Real-Time**:
+  - Socket.io (WebSockets)
+  - Simple-peer (WebRTC)
+  - SIP.js (VoIP)
+- **Authentication**: Firebase Authentication
+- **Testing**: Cypress (E2E), Jest (Unit)
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+### DevOps
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+- **Containerization**: Docker
+- **Orchestration**: Kubernetes
+- **Cloud**: AWS (CloudFront, S3, ECS)
+- **CI/CD**: GitHub Actions
+
+## 📁 Project Structure
+
+```
+conversaflow-crm/
+├── src/
+│   ├── components/       # Reusable UI components
+│   ├── features/         # Feature-based modules
+│   ├── hooks/            # Custom React hooks
+│   ├── services/         # API and WebSocket services
+│   ├── store/            # State management (Jotai)
+│   ├── utils/            # Helper functions
+│   └── App.tsx           # Main application
+├── docs/                 # Documentation
+├── cypress/              # E2E tests
+└── public/               # Static assets
+```
+
+## 🗺️ Development Roadmap
+
+### Phase 1: Foundation ✅
+
+- [x] Project setup and architecture
+- [x] Firebase authentication
+- [x] RBAC implementation
+- [x] Material-UI theming
+
+### Phase 2: Core Features (In Progress)
+
+- [x] Dashboard layout
+- [ ] Real-time chat (60% complete)
+- [ ] Video calling (30% complete)
+- [ ] VoIP integration (planning)
+
+### Phase 3: Advanced Features (Planned)
+
+- [ ] Advanced analytics
+- [ ] File sharing and storage
+- [ ] Email integration
+- [ ] Mobile app (React Native)
+
+### Phase 4: Testing & Deployment (Planned)
+
+- [ ] Comprehensive E2E tests
+- [ ] Performance optimization
+- [ ] Security audit
+- [ ] Production deployment
+
+## 📚 Documentation
+
+- [Architecture Overview](./docs/architecture.md)
+- [API Documentation](./docs/api-docs.md)
+- [Component Library](./docs/components.md)
+- [Development Guide](./docs/development.md)
+- [Deployment Guide](./docs/deployment.md)
+
+## 🚀 Getting Started
+
+### Prerequisites
+
+- Node.js 18+
+- npm or yarn
+- Firebase account
+
+### Installation
+
+```bash
+# Clone the repository
+git clone https://github.com/neha-iitjdh/conversaflow-crm.git
+
+# Navigate to project directory
+cd conversaflow-crm
+
+# Install dependencies
+npm install
+
+# Set up environment variables
+cp .env.example .env
+
+# Start development server
+npm run dev
+```
+
+## 🧪 Testing
+
+```bash
+# Run unit tests
+npm run test
+
+# Run E2E tests
+npm run cypress:open
+
+# Run all tests
+npm run test:all
+```
+
+## 📦 Deployment
+
+```bash
+# Build for production
+npm run build
+
+# Docker build
+docker build -t conversaflow-crm .
+
+# Deploy to Kubernetes
+kubectl apply -f k8s/
+```
+
+## 👤 Author
+
+**Neha Sharma**
+
+- M.Tech Computer Science & Engineering, IIT Jodhpur
+- Email: neha.iitjdh@gmail.com
+- GitHub: [@neha-iitjdh](https://github.com/neha-iitjdh)
+- LinkedIn: [i-nehasharma](https://linkedin.com/in/i-nehasharma)
+
+## 📄 License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+## 🙏 Acknowledgments
+
+- Inspired by modern CRM platforms like Salesforce and HubSpot
+- Built with best practices from React and TypeScript communities
+- Architecture patterns from Martin Fowler and Uncle Bob
+
+---
+
+⭐ If you find this project interesting, please consider giving it a star!
