@@ -1,25 +1,18 @@
-import React from 'react';
-
-
+import { Routes, Route } from 'react-router-dom';
+import { Layout } from '@/components/common/Layout';
+import { Overview } from '@/pages/Overview';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        {/* <img src={} className="App-logo" alt="logo" /> */}
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React - Neha Sharma
-        </a>
-      </header>
-    </div>
+    <Layout>
+      <Routes>
+        <Route path="/" element={<Overview />} />
+        <Route path="/performance" element={<div>Performance Page</div>} />
+        <Route path="/activity" element={<div>Activity Page</div>} />
+        <Route path="/product" element={<div>Product Page</div>} />
+        <Route path="/task" element={<div>Task Page</div>} />
+      </Routes>
+    </Layout>
   );
 }
 
