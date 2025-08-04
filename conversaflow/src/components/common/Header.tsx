@@ -31,7 +31,7 @@ export const Header: React.FC = () => {
     >
       <Toolbar>
         <Typography variant="h6" sx={{ fontWeight: 700, mr: 4 }}>
-          Syncrowave
+          ConversaFlow
         </Typography>
 
         <Box sx={{ flexGrow: 1 }} />
