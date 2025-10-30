@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ConversaFlow - Enterprise CRM Platform</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>💬</text></svg>">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow-x: hidden;
+        }
+        
+        .container {
+            max-width: 1000px;
+            padding: 2rem;
+            text-align: center;
+            animation: fadeIn 1s ease-in;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .logo {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+            animation: bounce 2s infinite;
+        }
+        
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+        
+        h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+        
+        .subtitle {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+            opacity: 0.95;
+            font-weight: 300;
+        }
+        
+        .status-badge {
+            display: inline-block;
+            background: rgba(76, 175, 80, 0.9);
+            padding: 0.7rem 1.5rem;
+            border-radius: 30px;
+            font-size: 1rem;
+            margin: 1.5rem 0;
+            font-weight: 500;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+        
+        .description {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            margin: 2rem auto;
+            max-width: 700px;
+            opacity: 0.9;
+        }
+        
+        .tech-stack {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.8rem;
+            justify-content: center;
+            margin: 2.5rem 0;
+            padding: 2rem 0;
+            border-top: 1px solid rgba(255,255,255,0.2);
+            border-bottom: 1px solid rgba(255,255,255,0.2);
+        }
+        
+        .tech-badge {
+            background: rgba(255,255,255,0.15);
+            backdrop-filter: blur(10px);
+            padding: 0.6rem 1.2rem;
+            border-radius: 20px;
+            font-size: 0.95rem;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+        
+        .tech-badge:hover {
+            background: rgba(255,255,255,0.25);
+            transform: translateY(-2px);
+        }
+        
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin: 2.5rem 0;
+            text-align: left;
+        }
+        
+        .feature-card {
+            background: rgba(255,255,255,0.1);
+            backdrop-filter: blur(10px);
+            padding: 1.5rem;
+            border-radius: 15px;
+            border: 1px solid rgba(255,255,255,0.2);
+            transition: all 0.3s ease;
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-5px);
+            background: rgba(255,255,255,0.15);
+        }
+        
+        .feature-icon {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .feature-title {
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+        
+        .links {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 3rem;
+        }
+        
+        .btn {
+            padding: 1rem 2rem;
+            text-decoration: none;
+            border-radius: 30px;
+            font-weight: 600;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+        
+        .btn-primary {
+            background: white;
+            color: #667eea;
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+        }
+        
+        .btn-secondary {
+            background: rgba(255,255,255,0.1);
+            color: white;
+            border: 2px solid white;
+        }
+        
+        .btn-secondary:hover {
+            background: rgba(255,255,255,0.2);
+            transform: translateY(-3px);
+        }
+        
+        .footer {
+            margin-top: 4rem;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255,255,255,0.2);
+            font-size: 0.95rem;
+            opacity: 0.8;
+        }
+        
+        .progress-bar {
+            width: 100%;
+            height: 8px;
+            background: rgba(255,255,255,0.2);
+            border-radius: 10px;
+            margin: 2rem 0;
+            overflow: hidden;
+        }
+        
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #4CAF50, #8BC34A);
+            width: 35%;
+            animation: progress 2s ease-in-out;
+        }
+        
+        @keyframes progress {
+            from { width: 0%; }
+            to { width: 35%; }
+        }
+        
+        @media (max-width: 768px) {
+            h1 { font-size: 2rem; }
+            .subtitle { font-size: 1.1rem; }
+            .features { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="logo">💬</div>
+        <h1>ConversaFlow</h1>
+        <p class="subtitle">Enterprise Real-Time CRM Communication Platform</p>
+        
+        <div class="status-badge">
+            ⚡ Active Development | Launch: November 2025
+        </div>
+        
+        <div class="progress-bar">
+            <div class="progress-fill"></div>
+        </div>
+        <p style="font-size: 0.9rem; opacity: 0.8; margin-top: 0.5rem;">Development Progress: 35%</p>
+        
+        <p class="description">
+            A production-grade, full-stack CRM platform featuring real-time messaging, 
+            HD video conferencing, VoIP telephony integration, and enterprise-level 
+            role-based access control. Built with modern technologies and best practices 
+            for scalability and performance.
+        </p>
+        
+        <div class="features">
+            <div class="feature-card">
+                <div class="feature-icon">💬</div>
+                <div class="feature-title">Real-Time Chat</div>
+                <p style="font-size: 0.9rem; opacity: 0.9;">WebSocket-powered instant messaging with typing indicators</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">🎥</div>
+                <div class="feature-title">Video Calls</div>
+                <p style="font-size: 0.9rem; opacity: 0.9;">WebRTC-based HD video conferencing with screen sharing</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">📞</div>
+                <div class="feature-title">VoIP Integration</div>
+                <p style="font-size: 0.9rem; opacity: 0.9;">SIP.js powered telephony with IVR and call routing</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">🔐</div>
+                <div class="feature-title">Advanced RBAC</div>
+                <p style="font-size: 0.9rem; opacity: 0.9;">Granular permissions with route and feature-level access</p>
+            </div>
+        </div>
+        
+        <div class="tech-stack">
+            <span class="tech-badge">React 18</span>
+            <span class="tech-badge">TypeScript</span>
+            <span class="tech-badge">Material-UI v5</span>
+            <span class="tech-badge">Jotai</span>
+            <span class="tech-badge">React Query</span>
+            <span class="tech-badge">WebSockets</span>
+            <span class="tech-badge">WebRTC</span>
+            <span class="tech-badge">SIP.js</span>
+            <span class="tech-badge">Firebase Auth</span>
+            <span class="tech-badge">Cypress</span>
+            <span class="tech-badge">Docker</span>
+            <span class="tech-badge">Kubernetes</span>
+            <span class="tech-badge">AWS</span>
+        </div>
+        
+        <div class="links">
+            <a href="https://github.com/neha-iitjdh/conversaflow-crm" class="btn btn-primary" target="_blank">
+                <span>📁</span> View on GitHub
+            </a>
+            <a href="https://github.com/neha-iitjdh/conversaflow-crm/tree/main/docs" class="btn btn-secondary" target="_blank">
+                <span>📚</span> Documentation
+            </a>
+            <a href="https://github.com/neha-iitjdh/conversaflow-crm/blob/main/docs/roadmap.md" class="btn btn-secondary" target="_blank">
+                <span>🗺️</span> Roadmap
+            </a>
+        </div>
+        
+        <div class="footer">
+            <p><strong>Built by Neha Sharma</strong></p>
+            <p>M.Tech Computer Science & Engineering, IIT Jodhpur</p>
+            <p style="margin-top: 1rem; font-size: 0.85rem;">
+                📧 neha.iitjdh@gmail.com | 
+                <a href="https://github.com/neha-iitjdh" style="color: white;">GitHub</a> | 
+                <a href="https://linkedin.com/in/i-nehasharma" style="color: white;">LinkedIn</a>
+            </p>
+        </div>
+    </div>
+</body>
+</html>
